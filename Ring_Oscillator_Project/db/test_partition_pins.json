@@ -1,0 +1,33 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "osc_out",
+					"strict" : false
+				},
+				{
+					"name" : "select0",
+					"strict" : false
+				},
+				{
+					"name" : "select1",
+					"strict" : false
+				},
+				{
+					"name" : "select2",
+					"strict" : false
+				},
+				{
+					"name" : "select3",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
+					"strict" : false
+				}
+			]
+		}
+	]
+}
