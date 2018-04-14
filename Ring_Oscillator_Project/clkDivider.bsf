@@ -20,30 +20,31 @@ refer to the applicable agreement for further details.
 */
 (header "symbol" (version "1.1"))
 (symbol
-	(rect 16 16 256 96)
-	(text "ring_osc" (rect 5 0 39 12)(font "Arial" ))
+	(rect 16 16 168 96)
+	(text "clkDivider" (rect 5 0 43 12)(font "Arial" ))
 	(text "inst" (rect 8 64 20 76)(font "Arial" ))
 	(port
 		(pt 0 32)
 		(input)
-		(text "controlIn[NUM_LUTS-1..0]" (rect 0 0 107 12)(font "Arial" ))
-		(text "controlIn[NUM_LUTS-1..0]" (rect 21 27 128 39)(font "Arial" ))
-		(line (pt 0 32)(pt 16 32)(line_width 3))
+		(text "in" (rect 0 0 5 12)(font "Arial" ))
+		(text "in" (rect 21 27 26 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32)(line_width 1))
 	)
 	(port
-		(pt 240 32)
+		(pt 0 48)
+		(input)
+		(text "select[3..0]" (rect 0 0 42 12)(font "Arial" ))
+		(text "select[3..0]" (rect 21 43 63 55)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48)(line_width 3))
+	)
+	(port
+		(pt 152 32)
 		(output)
-		(text "osc_out" (rect 0 0 31 12)(font "Arial" ))
-		(text "osc_out" (rect 188 27 219 39)(font "Arial" ))
-		(line (pt 240 32)(pt 224 32)(line_width 1))
+		(text "out" (rect 0 0 11 12)(font "Arial" ))
+		(text "out" (rect 120 27 131 39)(font "Arial" ))
+		(line (pt 152 32)(pt 136 32)(line_width 1))
 	)
-	(parameter
-		"NUM_LUTS"
-		"20"
-		""
-		(type "PARAMETER_SIGNED_DEC")	)
 	(drawing
-		(rectangle (rect 16 16 224 64)(line_width 1))
+		(rectangle (rect 16 16 136 64)(line_width 1))
 	)
-	(annotation_block (parameter)(rect 256 -64 356 16))
 )

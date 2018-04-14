@@ -1,0 +1,52 @@
+module TDC_model #(
+parameter integer N_delays    = 50,
+parameter Time_delay  = 20p,
+parameter Vdd         = 1.8   // Positive power supply V
+) (
+input TDC_Start_i,
+input TDC_Stop_i,
+// input TDC_CLK_i,
+input TDC_Rst_p_i,
+
+output TDC_therm_o
+);
+
+electrical [N_delays - 1: 0] TDC_therm_o;
+electrical TDC_Start_i, TDC_Stop_i, TDC_Rst_p_i;
+integer i;
+real vmid;
+
+real delay_reg[0: N_delays - 1];
+real delay_chain[0: N_delays - 1];
+
+analog begin
+//Initialize parameters
+@(initial_step) begin
+  vmid=(Vdd)/2.0;     // Midrail Voltage
+  for(i=0; i< N_delays; i=i+1) begin
+    delay_chain[i] = 0;
+  end
+end
+
+//Delay chain delays propagates the signal
+@(timer(0, Time_delay)) begin
+for(i=1; i < N_delays; i=i+1) begin
+  delay_chain[N_delays - i] = delay_chain[N_delays - i-1];
+end
+
+delay_chain[0] = V(TDC_Start_i); // Beginning of the delay chain
+end
+
+// At Stop threshold crossing, buffer the TDC status
+@(cross(V(TDC_Stop_i) - vmid, +1)) begin 
+  for(i=0; i< N_delays; i=i+1) begin
+    delay_reg[i] = (delay_chain[i] >= vmid);      
+  end
+end
+
+generate i (50 - 1, 0) begin
+  V(TDC_therm_o[i]) <+ transition(delay_reg[i],0 , 2p, 2p);
+end
+
+end
+endmodule
