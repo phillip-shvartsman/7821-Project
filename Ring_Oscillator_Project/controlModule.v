@@ -2,7 +2,7 @@ module controlModule #(NUM_LUTS = 20,FINECSIZE = 2,FINECBLOCKSIZE=10)(input wire
 integer i,j;
 always @* begin
 	for(i=0;i<FINECSIZE;i=i+1) begin
-		for(j=FINECSIZE*i;j<FINECSIZE*(i+1);j=j+1) begin
+		for(j=FINECBLOCKSIZE*i;j<FINECBLOCKSIZE*(i+1);j=j+1) begin
 			control[j] <= fcselect[i];
 		end
 	end

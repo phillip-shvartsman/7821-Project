@@ -1,4 +1,4 @@
-module clkDivider(input wire in,input wire [3:0] select, output reg out);
+module clkDivider(input wire in,input wire [1:0] select, output reg out);
  
 reg one;
 reg[1:0] two;
@@ -19,10 +19,10 @@ always@(posedge in) begin
 end
 always @* begin
 	case(select)
-		4'b0000: out<=one;
-		4'b0001: out<=two[0];
-		4'b0010: out<=three[0];
-		4'b0011: out<=four[0];
+		2'b00: out<=one;
+		2'b01: out<=two[0];
+		2'b10: out<=three[0];
+		2'b11: out<=four[0];
 		default: out<=one;
 	endcase
 end

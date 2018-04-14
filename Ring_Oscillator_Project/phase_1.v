@@ -4,7 +4,6 @@ module phase_1(
 	output up,
 	output down );
 	
-	wire ref_int;
 	(* preserve *)reg reset;
 	reg up_int;
 	reg down_int;
@@ -13,7 +12,7 @@ module phase_1(
 	wire temp_reset, temp_reset_out;
 	
 	//alt_inbuf inst_inbuf(.i(ref), .o(ref_int));
-	assign ref_int = ref;
+
 	//alt_inbuf inst_inbuf(i.(ref), o.(ref_int));
 	//alt_outbuf inst_outbuf_up(.i(up_int), .o(up));
 	//alt_outbuf inst_outbuf_down(.i(down_int), .o(down));
@@ -64,7 +63,7 @@ module phase_1(
 	end
 	endgenerate
 	
-	always@(posedge ref_int, negedge temp_reset_out)
+	always@(posedge ref, negedge temp_reset_out)
 	begin
 		if(~temp_reset_out)
 			up_int <= 1'b0;

@@ -33,25 +33,25 @@
 //refer to the applicable agreement for further details.
 
 
-//altiobuf_in CBX_AUTO_BLACKBOX="ALL" DEVICE_FAMILY="Cyclone IV E" ENABLE_BUS_HOLD="FALSE" NUMBER_OF_CHANNELS=4 USE_DIFFERENTIAL_MODE="FALSE" USE_DYNAMIC_TERMINATION_CONTROL="FALSE" datain dataout
+//altiobuf_in CBX_AUTO_BLACKBOX="ALL" DEVICE_FAMILY="Cyclone IV E" ENABLE_BUS_HOLD="FALSE" NUMBER_OF_CHANNELS=2 USE_DIFFERENTIAL_MODE="FALSE" USE_DYNAMIC_TERMINATION_CONTROL="FALSE" datain dataout
 //VERSION_BEGIN 17.1 cbx_altiobuf_in 2017:10:25:18:06:52:SJ cbx_mgl 2017:10:25:18:08:29:SJ cbx_stratixiii 2017:10:25:18:06:53:SJ cbx_stratixv 2017:10:25:18:06:53:SJ  VERSION_END
 // synthesis VERILOG_INPUT_VERSION VERILOG_2001
 // altera message_off 10463
 
 
-//synthesis_resources = cycloneive_io_ibuf 4 
+//synthesis_resources = cycloneive_io_ibuf 2 
 //synopsys translate_off
 `timescale 1 ps / 1 ps
 //synopsys translate_on
-module  ioBufIN_iobuf_in_g8i
+module  ioBufIN_iobuf_in_e8i
 	( 
 	datain,
 	dataout) ;
-	input   [3:0]  datain;
-	output   [3:0]  dataout;
+	input   [1:0]  datain;
+	output   [1:0]  dataout;
 
-	wire  [3:0]   wire_ibufa_i;
-	wire  [3:0]   wire_ibufa_o;
+	wire  [1:0]   wire_ibufa_i;
+	wire  [1:0]   wire_ibufa_o;
 
 	cycloneive_io_ibuf   ibufa_0
 	( 
@@ -87,45 +87,11 @@ module  ioBufIN_iobuf_in_g8i
 		ibufa_1.bus_hold = "false",
 		ibufa_1.differential_mode = "false",
 		ibufa_1.lpm_type = "cycloneive_io_ibuf";
-	cycloneive_io_ibuf   ibufa_2
-	( 
-	.i(wire_ibufa_i[2:2]),
-	.o(wire_ibufa_o[2:2])
-	`ifndef FORMAL_VERIFICATION
-	// synopsys translate_off
-	`endif
-	,
-	.ibar(1'b0)
-	`ifndef FORMAL_VERIFICATION
-	// synopsys translate_on
-	`endif
-	);
-	defparam
-		ibufa_2.bus_hold = "false",
-		ibufa_2.differential_mode = "false",
-		ibufa_2.lpm_type = "cycloneive_io_ibuf";
-	cycloneive_io_ibuf   ibufa_3
-	( 
-	.i(wire_ibufa_i[3:3]),
-	.o(wire_ibufa_o[3:3])
-	`ifndef FORMAL_VERIFICATION
-	// synopsys translate_off
-	`endif
-	,
-	.ibar(1'b0)
-	`ifndef FORMAL_VERIFICATION
-	// synopsys translate_on
-	`endif
-	);
-	defparam
-		ibufa_3.bus_hold = "false",
-		ibufa_3.differential_mode = "false",
-		ibufa_3.lpm_type = "cycloneive_io_ibuf";
 	assign
 		wire_ibufa_i = datain;
 	assign
 		dataout = wire_ibufa_o;
-endmodule //ioBufIN_iobuf_in_g8i
+endmodule //ioBufIN_iobuf_in_e8i
 //VALID FILE
 
 
@@ -136,13 +102,13 @@ module ioBufIN (
 	datain,
 	dataout);
 
-	input	[3:0]  datain;
-	output	[3:0]  dataout;
+	input	[1:0]  datain;
+	output	[1:0]  dataout;
 
-	wire [3:0] sub_wire0;
-	wire [3:0] dataout = sub_wire0[3:0];
+	wire [1:0] sub_wire0;
+	wire [1:0] dataout = sub_wire0[1:0];
 
-	ioBufIN_iobuf_in_g8i	ioBufIN_iobuf_in_g8i_component (
+	ioBufIN_iobuf_in_e8i	ioBufIN_iobuf_in_e8i_component (
 				.datain (datain),
 				.dataout (sub_wire0));
 
@@ -156,13 +122,13 @@ endmodule
 // Retrieval info: LIBRARY: altera_mf altera_mf.altera_mf_components.all
 // Retrieval info: CONSTANT: INTENDED_DEVICE_FAMILY STRING "Cyclone IV E"
 // Retrieval info: CONSTANT: enable_bus_hold STRING "FALSE"
-// Retrieval info: CONSTANT: number_of_channels NUMERIC "4"
+// Retrieval info: CONSTANT: number_of_channels NUMERIC "2"
 // Retrieval info: CONSTANT: use_differential_mode STRING "FALSE"
 // Retrieval info: CONSTANT: use_dynamic_termination_control STRING "FALSE"
-// Retrieval info: USED_PORT: datain 0 0 4 0 INPUT NODEFVAL "datain[3..0]"
-// Retrieval info: USED_PORT: dataout 0 0 4 0 OUTPUT NODEFVAL "dataout[3..0]"
-// Retrieval info: CONNECT: @datain 0 0 4 0 datain 0 0 4 0
-// Retrieval info: CONNECT: dataout 0 0 4 0 @dataout 0 0 4 0
+// Retrieval info: USED_PORT: datain 0 0 2 0 INPUT NODEFVAL "datain[1..0]"
+// Retrieval info: USED_PORT: dataout 0 0 2 0 OUTPUT NODEFVAL "dataout[1..0]"
+// Retrieval info: CONNECT: @datain 0 0 2 0 datain 0 0 2 0
+// Retrieval info: CONNECT: dataout 0 0 2 0 @dataout 0 0 2 0
 // Retrieval info: GEN_FILE: TYPE_NORMAL ioBufIN.v TRUE
 // Retrieval info: GEN_FILE: TYPE_NORMAL ioBufIN.inc FALSE
 // Retrieval info: GEN_FILE: TYPE_NORMAL ioBufIN.cmp FALSE

@@ -35,8 +35,8 @@ module ioBufIN (
 	datain,
 	dataout)/* synthesis synthesis_clearbox = 1 */;
 
-	input	[3:0]  datain;
-	output	[3:0]  dataout;
+	input	[1:0]  datain;
+	output	[1:0]  dataout;
 
 endmodule
 
@@ -48,13 +48,13 @@ endmodule
 // Retrieval info: LIBRARY: altera_mf altera_mf.altera_mf_components.all
 // Retrieval info: CONSTANT: INTENDED_DEVICE_FAMILY STRING "Cyclone IV E"
 // Retrieval info: CONSTANT: enable_bus_hold STRING "FALSE"
-// Retrieval info: CONSTANT: number_of_channels NUMERIC "4"
+// Retrieval info: CONSTANT: number_of_channels NUMERIC "2"
 // Retrieval info: CONSTANT: use_differential_mode STRING "FALSE"
 // Retrieval info: CONSTANT: use_dynamic_termination_control STRING "FALSE"
-// Retrieval info: USED_PORT: datain 0 0 4 0 INPUT NODEFVAL "datain[3..0]"
-// Retrieval info: USED_PORT: dataout 0 0 4 0 OUTPUT NODEFVAL "dataout[3..0]"
-// Retrieval info: CONNECT: @datain 0 0 4 0 datain 0 0 4 0
-// Retrieval info: CONNECT: dataout 0 0 4 0 @dataout 0 0 4 0
+// Retrieval info: USED_PORT: datain 0 0 2 0 INPUT NODEFVAL "datain[1..0]"
+// Retrieval info: USED_PORT: dataout 0 0 2 0 OUTPUT NODEFVAL "dataout[1..0]"
+// Retrieval info: CONNECT: @datain 0 0 2 0 datain 0 0 2 0
+// Retrieval info: CONNECT: dataout 0 0 2 0 @dataout 0 0 2 0
 // Retrieval info: GEN_FILE: TYPE_NORMAL ioBufIN.v TRUE
 // Retrieval info: GEN_FILE: TYPE_NORMAL ioBufIN.inc FALSE
 // Retrieval info: GEN_FILE: TYPE_NORMAL ioBufIN.cmp FALSE

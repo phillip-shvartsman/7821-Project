@@ -26,15 +26,15 @@ refer to the applicable agreement for further details.
 	(port
 		(pt 0 56)
 		(input)
-		(text "datain[3..0]" (rect 0 0 62 14)(font "Arial" (font_size 8)))
-		(text "datain[3..0]" (rect 4 42 55 55)(font "Arial" (font_size 8)))
+		(text "datain[1..0]" (rect 0 0 62 14)(font "Arial" (font_size 8)))
+		(text "datain[1..0]" (rect 4 42 55 55)(font "Arial" (font_size 8)))
 		(line (pt 0 56)(pt 100 56)(line_width 3))
 	)
 	(port
 		(pt 232 56)
 		(output)
-		(text "dataout[3..0]" (rect 0 0 70 14)(font "Arial" (font_size 8)))
-		(text "dataout[3..0]" (rect 169 42 227 55)(font "Arial" (font_size 8)))
+		(text "dataout[1..0]" (rect 0 0 70 14)(font "Arial" (font_size 8)))
+		(text "dataout[1..0]" (rect 169 42 227 55)(font "Arial" (font_size 8)))
 		(line (pt 232 56)(pt 132 56)(line_width 3))
 	)
 	(drawing
