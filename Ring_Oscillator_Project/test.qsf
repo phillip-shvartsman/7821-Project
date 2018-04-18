@@ -77,4 +77,5 @@ set_location_assignment PIN_115 -to dTwo
 set_location_assignment PIN_111 -to dThree
 set_location_assignment PIN_104 -to dFour
 set_location_assignment PIN_114 -to down_out
+set_location_assignment PIN_100 -to upDownSampler
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
