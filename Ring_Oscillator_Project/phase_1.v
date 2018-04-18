@@ -10,6 +10,7 @@ module phase_1(
 	wire [1:0] lut_wire;
 	wire temp_1, temp_2, temp_3, temp_4;
 	wire temp_reset, temp_reset_out;
+	reg delay_up_reset;
 	
 	//alt_inbuf inst_inbuf(.i(ref), .o(ref_int));
 
@@ -26,6 +27,12 @@ module phase_1(
 	assign temp_2 = 1'b1;
 	assign temp_reset = ~(up_int & down_int);
 	
+	always@(posedge down_int)
+	begin
+		delay_up_reset <= temp_reset;
+	end
+	
+	///new comment
 
 
 	
@@ -66,6 +73,7 @@ module phase_1(
 	always@(posedge ref, negedge temp_reset_out)
 	begin
 		if(~temp_reset_out)
+		//if(~delay_up_reset)
 			up_int <= 1'b0;
 		else
 			up_int <= temp_3;
