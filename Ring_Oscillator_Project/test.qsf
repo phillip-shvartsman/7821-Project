@@ -55,7 +55,15 @@ set_location_assignment PIN_126 -to osc_out
 set_location_assignment PIN_124 -to select1
 set_location_assignment PIN_120 -to select0
 set_location_assignment PIN_24 -to clk
-set_global_assignment -name VERILOG_FILE up_down.v
+set_location_assignment PIN_121 -to up_out
+set_location_assignment PIN_125 -to inputRef
+set_location_assignment PIN_113 -to dOne
+set_location_assignment PIN_115 -to dTwo
+set_location_assignment PIN_111 -to dThree
+set_location_assignment PIN_104 -to dFour
+set_location_assignment PIN_114 -to down_out
+set_location_assignment PIN_100 -to upDownSampler
+set_global_assignment -name VERILOG_FILE up_down_counter.v
 set_global_assignment -name BDF_FILE phase_1_top.bdf
 set_global_assignment -name VERILOG_FILE phase_1.v
 set_global_assignment -name BDF_FILE top.bdf
@@ -70,12 +78,8 @@ set_global_assignment -name VERILOG_FILE controlModule.v
 set_global_assignment -name VERILOG_FILE clkDivider.v
 set_global_assignment -name QIP_FILE MHZSIG.qip
 set_global_assignment -name QIP_FILE FASTERCLK.qip
-set_location_assignment PIN_121 -to up_out
-set_location_assignment PIN_125 -to inputRef
-set_location_assignment PIN_113 -to dOne
-set_location_assignment PIN_115 -to dTwo
-set_location_assignment PIN_111 -to dThree
-set_location_assignment PIN_104 -to dFour
-set_location_assignment PIN_114 -to down_out
-set_location_assignment PIN_100 -to upDownSampler
+set_global_assignment -name VERILOG_FILE src/fineDelay.v
+set_location_assignment PIN_1 -to LED4
+set_location_assignment PIN_2 -to LED3
+set_location_assignment PIN_3 -to LED2
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

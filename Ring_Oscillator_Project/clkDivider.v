@@ -1,29 +1,25 @@
 module clkDivider(input wire in,input wire [1:0] select, output reg out);
  
-reg one;
-reg[1:0] two;
-reg[2:0] three;
-reg[3:0] four;
+reg n2;
+reg n4;
+reg n8;
 
 always@(posedge in) begin
-	one <= ~one;
-	
-	two[0] <= ~two[1];
-	two[1] <= two[0];
-	
-	three[0] <= ~three[2];
-	three[2:1] <= three[1:0];
-	
-	four[0] <= ~four[3];
-	four[3:1] <= four[2:0];
+	 n2 <= ~n2;
+end
+always@(posedge n2) begin
+	n4 <= ~n4;
+end
+always@(posedge n4) begin
+	n8 <= ~n8;
 end
 always @* begin
 	case(select)
-		2'b00: out<=one;
-		2'b01: out<=two[0];
-		2'b10: out<=three[0];
-		2'b11: out<=four[0];
-		default: out<=one;
+		2'b00: out<=in;
+		2'b01: out<=n2;
+		2'b10: out<=n4;
+		2'b11: out<=n8;
+		default: out<=in;
 	endcase
 end
  
