@@ -1,16 +1,19 @@
 module phase_1(
 	input ref,
 	input data,
+	//input clk_temp,
 	output up,
-	output down );
+	output down 
+	//output reg delay_up_reset
+	);
 	
 	(* preserve *)reg reset;
 	reg up_int;
 	reg down_int;
 	wire [1:0] lut_wire;
 	wire temp_1, temp_2, temp_3, temp_4;
-	wire temp_reset, temp_reset_out;
-	reg delay_up_reset;
+	wire temp_reset, temp_reset_out, temp_reset_out_1;
+	wire delay_up_reset;
 	
 	//alt_inbuf inst_inbuf(.i(ref), .o(ref_int));
 
@@ -27,10 +30,10 @@ module phase_1(
 	assign temp_2 = 1'b1;
 	assign temp_reset = ~(up_int & down_int);
 	
-	always@(posedge down_int)
-	begin
-		delay_up_reset <= temp_reset;
-	end
+//	always@(posedge down_int)
+//	begin
+//		delay_up_reset <= temp_reset;
+//	end
 	
 	///new comment
 
@@ -70,10 +73,23 @@ module phase_1(
 	end
 	endgenerate
 	
-	always@(posedge ref, negedge temp_reset_out)
+	generate
+	begin : delay
+	LCELL lcell_delay_inv_1(
+		.in  (temp_reset_out),
+		.out (delay_up_reset)
+	);
+	end
+	endgenerate
+	
+	
+
+	
+	//always@(posedge ref, negedge temp_reset_out)
+	always@(posedge ref, negedge delay_up_reset)
 	begin
-		if(~temp_reset_out)
-		//if(~delay_up_reset)
+		//if(~temp_reset_out)
+		if(~delay_up_reset)
 			up_int <= 1'b0;
 		else
 			up_int <= temp_3;
@@ -87,10 +103,14 @@ module phase_1(
 			down_int <= temp_4;
 	end
 	
+	// Delay
+	// inv_1
+	assign temp_reset_out_1 = ~ temp_reset_out;
+	assign delay_up_reset = ~ temp_reset_out_1;
+	
 
 	
-	
-	
+
 	
 	
 	

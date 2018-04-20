@@ -77,5 +77,7 @@ set_location_assignment PIN_115 -to dTwo
 set_location_assignment PIN_111 -to dThree
 set_location_assignment PIN_104 -to dFour
 set_location_assignment PIN_114 -to down_out
-set_location_assignment PIN_100 -to upDownSampler
+set_global_assignment -name QIP_FILE clk_temp_ctrl.qip
+set_global_assignment -name QIP_FILE delay_clk_1.qip
+set_location_assignment PIN_100 -to clk_out
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
