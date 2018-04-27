@@ -65,13 +65,6 @@ refer to the applicable agreement for further details.
 		(text "divSelect[1..0]" (rect 133 43 187 55)(font "Arial" ))
 		(line (pt 208 48)(pt 192 48)(line_width 3))
 	)
-	(port
-		(pt 208 64)
-		(output)
-		(text "fineSelect[2..0]" (rect 0 0 57 12)(font "Arial" ))
-		(text "fineSelect[2..0]" (rect 130 59 187 71)(font "Arial" ))
-		(line (pt 208 64)(pt 192 64)(line_width 3))
-	)
 	(parameter
 		"counterSize"
 		"16"

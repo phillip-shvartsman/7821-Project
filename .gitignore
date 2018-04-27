@@ -47,8 +47,8 @@ Temporary Items
 .apdisk
 
 #Verilog/Quartus
-**/Ring_Oscillator_Project/db/
-**/Ring_Oscillator_Project/greybox_tmp/
-**/Ring_Oscillator_Project/incremental_db/
-**/Ring_Oscillator_Project/output_files/
-
+**/adpll/db/
+**/adpll/greybox_tmp/
+**/adpll/incremental_db/
+**/adpll/output_files/
+*.cdf

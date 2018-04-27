@@ -1,5 +1,6 @@
 module clkDivider(input wire in,input wire [1:0] select, output reg out);
  
+//Divide clk by 2^(select)
 reg n2;
 reg n4;
 reg n8;

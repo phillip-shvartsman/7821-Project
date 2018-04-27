@@ -1,4 +1,0 @@
-module fineDelay(in,out);
-input wire in;
-output wire out;
-endmodule
