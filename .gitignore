@@ -52,3 +52,5 @@ Temporary Items
 **/adpll/incremental_db/
 **/adpll/output_files/
 *.cdf
+*.bak
+*.csv

@@ -1,4 +1,0 @@
-module clkDivider(input wire in, input wire [3:0] select, output wire out)
- 
-
-endmodule
