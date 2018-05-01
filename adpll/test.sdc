@@ -9,8 +9,8 @@
 
 # Make sure period is less than 2x loop value in Fast timing model
 # In example, loop delay was 1.342, so fastest clock period is 2.684ns.  Overconstraining to 2.5 here:
-create_clock -name fake_clk -period 2.5 [get_pins {ring_osc_inst|constant|q}] 
-
+create_clock -name fake_clk -period 2.5 [get_pins {inst|constant|q}] 
+#set_scc_mode -size 3000
 
 derive_clock_uncertainty
 

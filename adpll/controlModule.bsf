@@ -26,8 +26,8 @@ refer to the applicable agreement for further details.
 	(port
 		(pt 0 32)
 		(input)
-		(text "fcselect[FINECSIZE-1..0]" (rect 0 0 103 12)(font "Arial" ))
-		(text "fcselect[FINECSIZE-1..0]" (rect 21 27 124 39)(font "Arial" ))
+		(text "lf_out[NUM_CONT-1..0]" (rect 0 0 99 12)(font "Arial" ))
+		(text "lf_out[NUM_CONT-1..0]" (rect 21 27 120 39)(font "Arial" ))
 		(line (pt 0 32)(pt 16 32)(line_width 3))
 	)
 	(port
@@ -43,12 +43,12 @@ refer to the applicable agreement for further details.
 		""
 		(type "PARAMETER_SIGNED_DEC")	)
 	(parameter
-		"FINECSIZE"
+		"NUM_CONT"
 		"2"
 		""
 		(type "PARAMETER_SIGNED_DEC")	)
 	(parameter
-		"FINECBLOCKSIZE"
+		"NUM_IN_CONTROL_BLOCK"
 		"10"
 		""
 		(type "PARAMETER_SIGNED_DEC")	)

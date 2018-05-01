@@ -61,13 +61,18 @@ refer to the applicable agreement for further details.
 	(port
 		(pt 208 48)
 		(output)
-		(text "divSelect[1..0]" (rect 0 0 54 12)(font "Arial" ))
-		(text "divSelect[1..0]" (rect 133 43 187 55)(font "Arial" ))
+		(text "divSelect[2..0]" (rect 0 0 55 12)(font "Arial" ))
+		(text "divSelect[2..0]" (rect 132 43 187 55)(font "Arial" ))
 		(line (pt 208 48)(pt 192 48)(line_width 3))
 	)
 	(parameter
 		"counterSize"
 		"16"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"MAX_DIV"
+		"8"
 		""
 		(type "PARAMETER_SIGNED_DEC")	)
 	(drawing

@@ -1,4 +1,4 @@
-module up_down_counter #(counterSize = 16)   (
+module up_down_counter #(counterSize = 16,MAX_DIV=8)   (
 out,  
 up_in,
 down_in,  
@@ -10,7 +10,7 @@ divSelect
 //Output to Frequency Control
 output reg [counterSize-1:0] out; 
 //Output to Divider
-output reg [1:0] divSelect;
+output reg [2:0] divSelect;
 //------------Input Ports-------------- 
 input up_in, down_in, clkUD, reset;
 //-------------Code Starts Here-------
@@ -38,13 +38,20 @@ always @(posedge clkUD) begin
 	//If the output is all zeros or all ones, inc/dec divider
 	case({out[counterSize-1],out[0]})
 		2'b11: begin
-			divSelect <= divSelect - 1;
+			case(divSelect) 
+				3'b000: divSelect<=divSelect;
+				default: divSelect <= divSelect - 1;
+			endcase
 		end
 		2'b00: begin 
-			divSelect <= divSelect + 1;
+			case(divSelect)
+				3'b111: divSelect<=divSelect;
+				default: divSelect <= divSelect + 1;
+			endcase
 		end
 		default: divSelect <= divSelect;
 	endcase
+	//divSelect <= 3'b110;
 end
 
 endmodule

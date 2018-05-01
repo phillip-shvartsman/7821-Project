@@ -11,18 +11,10 @@ module phase_1(
 	wire temp_1, temp_2, temp_3, temp_4;
 	wire temp_reset, temp_reset_out;
 	reg delay_up_reset;
-	
-	//alt_inbuf inst_inbuf(.i(ref), .o(ref_int));
 
-	//alt_inbuf inst_inbuf(i.(ref), o.(ref_int));
-	//alt_outbuf inst_outbuf_up(.i(up_int), .o(up));
-	//alt_outbuf inst_outbuf_down(.i(down_int), .o(down));
 	
 	assign up = up_int;
 	assign down = down_int;
-//	dff dff_up(.d(data), .q(up_int), .clk(ref_int), .clrn(reset));
-//	dff dff_down(.d(data), .q(down_int), .clk(ref_int), .clrn(reset));
-
 	assign temp_1 = 1'b1;
 	assign temp_2 = 1'b1;
 	assign temp_reset = ~(up_int & down_int);
@@ -31,16 +23,6 @@ module phase_1(
 	begin
 		delay_up_reset <= temp_reset;
 	end
-	
-	///new comment
-
-
-	
-//	always@(up_int, down_int)
-//	begin
-//		reset <= ~(up_int & down_int);
-//	end
-	
 	
 	
 	generate
@@ -85,13 +67,5 @@ module phase_1(
 			down_int <= 1'b0;
 		else
 			down_int <= temp_4;
-	end
-	
-
-	
-	
-	
-	
-	
-	
+	end	
 endmodule
